@@ -1,0 +1,204 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Krustáceo Kascarudo - Comidas Rápidas S.A.</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Base */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            padding-top: 250px; /* Espacio para el header */
+            background: url('{% static "images/fondo de bikini.jpg" %}') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+
+        /* Encabezado */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 8;
+            background-color: rgba(70, 130, 180, 0.9);
+            padding: 8px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+            width: 180px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        /* Títulos con estilo Comic */
+        .comic-title, .comic-subtitle {
+            font-family: 'Comic Neue', sans-serif;
+            color: red;
+            text-shadow: 2px 2px 0px black;
+            margin: 5px 0;
+        }
+
+        .comic-title {
+            font-size: 3.5rem; /* Título más grande */
+            font-weight: bold;
+        }
+
+        .comic-subtitle {
+            font-size: 1.6rem;
+        }
+
+        /* Navegación */
+        nav {
+            background-color: rgba(70, 130, 180, 0.9); /* Azul acero tenue */
+            padding: 10px 0;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 2px solid #4682B4; /* Azul acero */
+        }
+
+        nav ul li a {
+            display: inline-block; /* Hace que el enlace tenga dimensiones propias */
+            padding: 10px 20px; /* Añade espacio interno para hacerlo compacto */
+            border: 2px solid red; /* Bordes rojos */
+            border-radius: 25px; /* Bordes redondeados */
+            background-color: rgba(255, 255, 0, 0.85); /* Fondo amarillo con transparencia */
+            color: black; /* Texto negro */
+            font-family: 'Comic Neue', sans-serif; /* Estilo Comic */
+            font-size: 1.5rem; /* Tamaño del texto */
+            font-weight: bold; /* Negrita */
+            text-shadow: 2px 2px 0px black; /* Sombra de texto */
+            text-align: center; /* Centrar texto */
+            transition: all 0.3s ease; /* Animación de transición */
+        }
+    
+        nav ul li a:hover {
+            background-color: rgba(255, 215, 0, 1); /* Fondo amarillo más intenso */
+            color: red; /* Texto rojo al pasar el mouse */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra en hover */
+        }
+
+        nav ul li a {
+            color: red;
+            font-family: 'Comic Neue', sans-serif; /* Aplica Comic Neue */
+            text-decoration: none;
+            font-size: 1.6rem;
+            transition: color 0.5s;
+        }
+
+        nav ul li a:hover {
+            color: red;
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(46, 139, 87, 0.9); /* Verde semi-transparente */
+            border-radius: 10px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Listado */
+        .card {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.85), rgba(255, 165, 0, 0.85)); /* Fondo amarillo-naranja degradado con transparencia */
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    
+        .card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+    
+        .info {
+            flex-grow: 1;
+            color: #000; /* Texto negro para contrastar */
+        }
+    
+        .actions a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: red;
+            font-size: 1.2rem;
+            font-family: 'Comic Neue', sans-serif; /* Aplica Comic Neue */
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            font-size: 0.9rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+    
+</head>
+<body>
+    <header>
+        <div style="display: flex; align-items: center; justify-content: flex-start; padding: 10px;">
+            <img src="{% static 'images/logo.jpg' %}" alt="El Krustáceo Kascarudo">
+            <div style="margin-left: 10px; text-align: left;">
+                <div class="comic-title">El Krustáceo Kascarudo</div>
+                <div class="comic-subtitle">El Palacio de las Cangreburgers</div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'comidas:create' %}">Crear Comida</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h2>Listado de Comidas</h2>
+
+        <!-- Listado de comidas -->
+        {% for comida in comidas %}
+        <div class="card">
+            <div class="info">
+                <h3>{{ comida.nombre }}</h3>
+                <p>{{ comida.descripcion }}</p>
+                <p><strong>${{ comida.precio }}</strong></p>
+            </div>
+            <div class="actions">
+                <a href="{% url 'comidas:detail' comida.id %}"><i class="fas fa-eye"></i> Ver</a>
+                <a href="{% url 'comidas:update' comida.id %}"><i class="fas fa-edit"></i> Editar</a>
+                <a href="{% url 'comidas:delete' comida.id %}"><i class="fas fa-trash-alt"></i> Borrar</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <footer>
+        <p>&copy; 2024 El Krustáceo Kascarudo Delivery S.A. | Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>

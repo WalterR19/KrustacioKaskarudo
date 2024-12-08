@@ -1,0 +1,127 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Comida</title>
+    <style>
+        /* Base */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            padding-top: 250px; /* Espacio para el header */
+            background: url('{% static "images/atencion.jpg" %}') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            min-height: 100vh; /* Asegura que el fondo cubra toda la pantalla */
+        }
+
+        /* Encabezado */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 8;
+            background-color: rgba(70, 130, 180, 0.9);
+            padding: 8px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+            width: 180px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        /* Títulos con estilo Comic */
+        .comic-title, .comic-subtitle {
+            font-family: 'Comic Neue', sans-serif;
+            color: red;
+            text-shadow: 2px 2px 0px black;
+            margin: 5px 0;
+        }
+
+        .comic-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .comic-subtitle {
+            font-size: 1.3rem;
+        }
+
+        /* Contenido */
+        .content {
+            position: relative;
+            z-index: 10;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+            padding: 20px;
+            margin-top: 100px; /* Espacio debajo del header */
+            border-radius: 10px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Botones */
+        button {
+            font-size: 1rem;
+            padding: 10px 20px;
+            background-color: red;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px 0;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: darkred;
+        }
+
+        /* Enlaces */
+        a {
+            color: red;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #add8e6; /* Azul claro cuando se pasa el mouse */
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div style="display: flex; align-items: center; justify-content: flex-start; padding: 10px;">
+            <img src="{% static 'images/logo.jpg' %}" alt="El Krustáceo Kascarudo">
+        <h1 class="comic-title">Crear Comida</h1>
+    </header>
+    
+    <!-- Contenido principal -->
+    <div class="content">
+        <h2 class="comic-subtitle">Agregar Comida</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Guardar</button>
+        </form>
+        <a href="{% url 'comidas:index' %}" class="comic-title">Volver al listado</a>
+    </div>
+</body>
+</html>

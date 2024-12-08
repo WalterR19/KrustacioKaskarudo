@@ -1,0 +1,91 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borrar Comida</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: url('{% static "images/bob llorando.jpg" %}') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro con transparencia */
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+            width: 80%;
+            max-width: 500px;
+        }
+
+        h1 {
+            font-family: 'Comic Neue', sans-serif;
+            color: #FF6347; /* Color rojo tomate */
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        button {
+            background-color: #FF6347;
+            color: white;
+            font-size: 1.2rem;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #FF4500; /* Rojo más oscuro al pasar el mouse */
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #FF6347;
+            font-size: 1.1rem;
+            text-decoration: none;
+            text-shadow: 1px 1px 3px black;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Borrar Comida</h1>
+        <p>¿Estás seguro de que quieres eliminar "{{ comida.nombre }}"?</p>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit">Sí, borrar</button>
+        </form>
+        <a href="{% url 'comidas:index' %}">Cancelar</a>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,91 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Comida</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Fondo */
+        body {
+            font-family: 'Comic Neue', sans-serif;
+            background: url('{% static "images/bob computador.jpg" %}') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        /* Contenedor principal */
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con transparencia */
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Título */
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2E8B57; /* Verde */
+            margin-bottom: 20px;
+        }
+
+        /* Texto */
+        p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        /* Botones */
+        .btn {
+            display: block;
+            text-align: center;
+            padding: 10px 15px;
+            background-color: #2E8B57; /* Verde */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            margin: 20px auto 0;
+            width: 200px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #228B22; /* Verde oscuro */
+            transform: scale(1.05); /* Pequeño zoom */
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            font-size: 0.9rem;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ comida.nombre }}</h1>
+        <p>{{ comida.descripcion }}</p>
+        <p><strong>Precio:</strong> ${{ comida.precio }}</p>
+        <a href="{% url 'comidas:index' %}" class="btn">Volver al Listado</a>
+    </div>
+    <footer>
+        <p>&copy; 2024 El Krustáceo Kascarudo Delivery S.A. | Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>
+
